@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class InvernoTest {
 
     @Test
-    public void seRetornamTodosFelizesQuandoTemperaturaDesceDoPrimeiroParaOSegundoDiaESobeOuPermaneceNoTerceiroDia(){
+    public void seRetornamTodosFelizesQuandoTemperaturaDesceDoPrimeiroParaOSegundoDiaESobeNoTerceiroDia(){
         int temperaturaDia1 = 20;
         int temperaturaDia2 = 10;
         int temperaturaDia3 = 12;
@@ -13,10 +13,28 @@ public class InvernoTest {
         assertEquals(":)", valorRetornado);
     }
     @Test
-    public void seRetornamTodosTristesQuandoTemperaturaSobeDoPrimeiroParaOSegundoDiaMasDesceOuPermaneceDoSegundoParaOTerceiro() {
+    public void seRetornamTodosFelizesQuandoTemperaturaDesceDoPrimeiroParaOSegundoDiaEPermaneceNoTerceiroDia(){
+        int temperaturaDia1 = 20;
+        int temperaturaDia2 = 10;
+        int temperaturaDia3 = 10;
+        Inverno inverno = new Inverno(temperaturaDia1, temperaturaDia2, temperaturaDia3);
+        String valorRetornado = inverno.definirOHumorDasPessoas();
+        assertEquals(":)", valorRetornado);
+    }
+    @Test
+    public void seRetornamTodosTristesQuandoTemperaturaSobeDoPrimeiroParaOSegundoDiaMasDesceDoSegundoParaOTerceiro() {
         int temperaturaDia1 = 10;
         int temperaturaDia2 = 20;
         int temperaturaDia3 = 18;
+        Inverno inverno = new Inverno(temperaturaDia1, temperaturaDia2, temperaturaDia3);
+        String valorRetornado = inverno.definirOHumorDasPessoas();
+        assertEquals(":(", valorRetornado);
+    }
+    @Test
+    public void seRetornamTodosTristesQuandoTemperaturaSobeDoPrimeiroParaOSegundoDiaMasPermaneceConstanteDoSegundoParaOTerceiro() {
+        int temperaturaDia1 = 10;
+        int temperaturaDia2 = 20;
+        int temperaturaDia3 = 20;
         Inverno inverno = new Inverno(temperaturaDia1, temperaturaDia2, temperaturaDia3);
         String valorRetornado = inverno.definirOHumorDasPessoas();
         assertEquals(":(", valorRetornado);
@@ -54,7 +72,7 @@ public class InvernoTest {
     @Test
     public void seRetornamTodosFelizesSeATemperarturaDesceuDoSegundoParaOTerceiroDiaMenosQueDoPrimeiroParaOSegundo(){
         int temperaturaDia1 = 30;
-        int temperaturaDia2 = 25    ;
+        int temperaturaDia2 = 25;
         int temperaturaDia3 = 24;
         Inverno inverno = new Inverno(temperaturaDia1, temperaturaDia2, temperaturaDia3);
         String valorRetornado = inverno.definirOHumorDasPessoas();
@@ -80,5 +98,25 @@ public class InvernoTest {
         String valorRetornado = inverno.definirOHumorDasPessoas();
         assertEquals(":(", valorRetornado);
     }
+    @Test
+    public void seRetornamTodosTristesSeATemperarturaSubiuDoSegundoParaOTerceiroMenosDoQueSubiuDoPrimeiroParaOSegundo(){
+        int temperaturaDia1 = 30;
+        int temperaturaDia2 = 35;
+        int temperaturaDia3 = 36;
+        Inverno inverno = new Inverno(temperaturaDia1, temperaturaDia2, temperaturaDia3);
+        String valorRetornado = inverno.definirOHumorDasPessoas();
+        assertEquals(":(", valorRetornado);
+    }
+    @Test
+    public void seRetornamTodosFelizesSeATemperarturaSubiuDoSegundoParaOTerceiroMaisDoQueSubiuDoPrimeiroParaOSegundo(){
+        int temperaturaDia1 = 30;
+        int temperaturaDia2 = 35;
+        int temperaturaDia3 = 41;
+        Inverno inverno = new Inverno(temperaturaDia1, temperaturaDia2, temperaturaDia3);
+        String valorRetornado = inverno.definirOHumorDasPessoas();
+        assertEquals(":)", valorRetornado);
+    }
+
+
 }
 

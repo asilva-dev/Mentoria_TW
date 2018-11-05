@@ -16,6 +16,9 @@ public class Inverno {
         }else if (temperaturaDia1 < temperaturaDia2 && temperaturaDia2 >= temperaturaDia3){
             return   ":(";
         }else if (temperaturaDia1 < temperaturaDia2 && temperaturaDia2 < temperaturaDia3){
+            if((temperaturaDia2 - temperaturaDia1) <(temperaturaDia3 - temperaturaDia2)){
+                return ":)";
+            }
             return ":(";
         }else if ((temperaturaDia2 - temperaturaDia1) > (temperaturaDia3 - temperaturaDia2)){
             return ":(";
